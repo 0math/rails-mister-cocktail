@@ -13,6 +13,7 @@
       data: { confirm: "Are you sure?" } %>
 
 <% end %>
+<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill unless @cocktail.photo.file.nil? %>
 <br>
 <br>
 <%= link_to 'Back to cocktails list', cocktails_path, class: "btn btn-primary" %>
