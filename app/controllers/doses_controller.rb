@@ -12,9 +12,12 @@ class DosesController < ApplicationController
     # @ingredient = Ingredient.find(params[:ingredient_id])
     @dose.cocktail = @cocktail
     # @dose.ingredient = @ingredient
+    # raise
     if @dose.save
       redirect_to cocktail_path(@cocktail)
     else
+      # raise
+      # add to simple form on #show @dose.errors.full_messages
       render :new
     end
   end
@@ -26,7 +29,6 @@ class DosesController < ApplicationController
     else
       render :show
     end
-
   end
 
   private
