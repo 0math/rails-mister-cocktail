@@ -1,6 +1,17 @@
 <h1>Add new dose</h1>
 
 <%= simple_form_for [@cocktail, @dose] do |f| %>
+  <% if @dose.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @dose.errors.full_messages.each do |message| %>
+          <li><h3><strong><%= message %></strong></h3></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- [...] all the fields -->
   <%= f.input :description %>
   <%= f.association :ingredient %>
   <%= f.button :submit, class: "btn btn-primary" %>
